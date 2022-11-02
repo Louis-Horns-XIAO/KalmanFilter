@@ -56,8 +56,11 @@ A Classic Kalman Filter consist of two steps: Prediction stage and Correction st
 
   It is obvious that Kalman gain can decide whether the predict state contributes more to the estimated state than the measurement data or not. the bias between measurement data and estimated measurement data from  predict state transform to an adjustment to $\check x_k$ .
 
+In general, the sensitivity of the Kalman filter to the error of initial value is actually good, and in the case of correctly determining the covariance matrix, the entire algorithm can finally converge to a higher precision position.
 总的来说，觉得卡尔曼滤波对初值的敏感程度其实还好，在正确判定协方差矩阵的情况下，整个算法最终能收敛到较高精度的位置。	
 
-但若是选取较为离谱的初值，虽然卡尔曼增益不会变化，但最终bias会随着预测值与真实值差别的缩小而逐渐收敛。因此Q和R应该至少与实际情况匹配。
+If a more outrageous initial value is selected, although the Kalman gain does not change, the final bias will gradually converge as the difference between the predicted value and the true value narrows. So Q and R should at least match the actual situation.
+若是选取较为离谱的初值，虽然卡尔曼增益不会变化，但最终bias会随着预测值与真实值差别的缩小而逐渐收敛。因此Q和R应该至少与实际情况匹配。
 
+After adding random noise to the velocity V, it has little effect on the convergence of the result, and the effect on the convergence speed is actually not larg.
 在对速度V添加随机噪声后，对结果的收敛影响不大，对收敛速度的影响其实也不大。
