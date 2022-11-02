@@ -7,9 +7,9 @@ A Classic Kalman Filter consist of two steps: Prediction stage and Correction st
 1. Prediction Stage:
 
    In Prediction stage, the prediction of state parameters( time k ) are calculated by the present( time k-1 ) state parameters and the control data. Function followed are built that describe how the state evolves from time k-1 to k as well as the way control data changes the state simultaneously.
-   $$
+  ```math
    \check x_k = A_k\hat x_{k-1}+Bu_k \tag1
-   $$
+  ```
 
    -   $ \hat x_{k-1}$: input state, the optical estimated state of time k-1
    -   $P_{k-1}$: Covariance matrix of the input state
@@ -19,25 +19,25 @@ A Classic Kalman Filter consist of two steps: Prediction stage and Correction st
    -   $w_k$: Control noise
 
    Function 1 is deducted from the following Function,describe the true state evolution with state noise:
-   $$
+   ```math
    x_k = A_kx_{k-1}+u_k+w_k
-   $$
+   ```
    
 2. Correction Stage:
 
    In Correction stage, K (Kalman gain) are calculate by the Covariance matrix of the predicted state and the measurement noise, based on the measurement function(followed) that describe the constrain between measured data and the true state.
-   $$
+  ```math
    z_k = C_kx_k+v_k
-   $$
+   ```
    Kalman Gain are calculated as follows:
-   $$
+   ```math
    K = \check P_kC_k^T(C_k\check P_kC_k^T +Q)^{-1}
-   $$
+   ```
    Then the estimated state of time k and the Covariance matrix of the estimated state can be calculated:
-   $$
+   ```math
    \hat x_k = \check x_k + K(z_k-C_k\check x_k)\\
    \hat P_k = (I-KC_k)\check P_k
-   $$
+   ```
    
 
 - $ \hat x_{k}$: output state, the optical estimated state of time k,
